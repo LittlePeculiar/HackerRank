@@ -5,6 +5,7 @@
  For example, if your niece is turning 4 years old, and the cake will have 4 candles of height 4, 4, 3, 1, she will be able to blow out 2 candles successfully, since the tallest candles are of height 4 and there are 2 such candles.
  */
 
+// 1st
 func birthdayCakeCandles(ar: [Int]) -> Int {
 
   //  let temp = ar.max()
@@ -23,3 +24,17 @@ func birthdayCakeCandles(ar: [Int]) -> Int {
   return count
 }
 
+//2nd
+
+func birthdayCakeCandles2(ar: [Int]) -> Int {
+
+  let max = ar.max()
+  var count = 0
+
+  for ii in 0..<ar.count {
+    if ar[ii] == max {
+      count += 1
+    }
+  }
+  return count
+}
