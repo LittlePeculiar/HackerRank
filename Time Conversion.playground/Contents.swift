@@ -6,6 +6,7 @@
 
 import Foundation
 
+// 1st
 func timeConversion(s: String) -> String {
   let dateFormatter = DateFormatter()
   dateFormatter.dateFormat = "hh:mm:ssa"
@@ -17,3 +18,13 @@ func timeConversion(s: String) -> String {
   return date24
 }
 
+//2nd
+func timeConversion2(s: String) -> String {
+  guard var hh = Int(s.prefix(2)) else { return s }
+
+  hh = (hh % 12) + (s.suffix(2) == "AM" ? 0 : 12)
+  let range = s.startIndex..<s.index(s.startIndex, offsetBy: 2)
+  let HH = String(format: "%02d", hh)
+
+  return String(s.replacingCharacters(in: range, with: HH).dropLast(2))
+}
