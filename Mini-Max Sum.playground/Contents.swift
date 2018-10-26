@@ -51,3 +51,16 @@ func miniMaxSum2(arr: [Int]) -> Void {
   }
   print(minSum, maxSum, separator: " ")
 }
+
+// 3rd
+func miniMaxSum3(arr: [Int]) -> Void {
+
+  var tempArr = [Int]()
+
+  for n in arr {
+    let sumOfArr = arr.reduce(0, +)
+    tempArr.append(sumOfArr - n)
+  }
+  let sortArr = tempArr.sorted()
+  print(sortArr[0], sortArr[4])
+}
