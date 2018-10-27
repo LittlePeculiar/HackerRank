@@ -28,3 +28,11 @@ func timeConversion2(s: String) -> String {
 
   return String(s.replacingCharacters(in: range, with: HH).dropLast(2))
 }
+
+// 3rd
+func timeConversion3(s: String) -> String {
+  guard var hh = Int(s.prefix(2)) else { return s }
+  hh = (hh % 12) + (s.suffix(2) == "AM" ? 0 : 12)
+  return String(format: "%02d", hh) + s.dropFirst(2).dropLast(2)
+}
+
