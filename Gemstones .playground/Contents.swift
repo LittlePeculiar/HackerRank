@@ -6,6 +6,7 @@
  For example, the array of mineral composition strings arr = [abc, abc, bc]. The minerals b and c appear in each composite, so there are 2 gemstones.
  */
 
+// 1st
 func gemstones(arr: [String]) -> Int {
 
   guard !arr.isEmpty else { return 0 }
@@ -14,6 +15,20 @@ func gemstones(arr: [String]) -> Int {
 
   for i in 1..<arr.count {
     intersection = intersection.intersection(Set(arr[i]))
+  }
+
+  return intersection.count
+}
+
+// 2nd
+func gemstones2(arr: [String]) -> Int {
+  guard !arr.isEmpty else { return 0 }
+
+  let sets = arr.map { Set($0) }
+  var intersection = sets[0]
+
+  for set in sets {
+    intersection = intersection.intersection(set)
   }
 
   return intersection.count
