@@ -34,4 +34,8 @@ func gemstones2(arr: [String]) -> Int {
   return intersection.count
 }
 
+func gemstones3(arr: [String]) -> Int {
+  return arr.isEmpty ? 0 : arr.map { Set($0) }.reduce(Set(arr[0])) { $0.intersection($1) }.count
+}
+
 gemstones(arr: ["abcdde", "baccd", "eeabg"])
